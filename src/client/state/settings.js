@@ -39,6 +39,8 @@ class Settings extends EventEmitter {
     this.darkModeQueryList.addEventListener('change', () => this.applyTheme())
 
     this.isTouchScreenDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+
+    this.roomIcons = this.getRoomIcons();;
   }
 
   getThemeIndex() {
@@ -135,6 +137,20 @@ class Settings extends EventEmitter {
     return settings.isPeopleDrawer;
   }
 
+  toggleRoomIcons() {
+    this.roomIcons = !this.roomIcons;
+    setSettings('roomIcons', this.roomIcons);
+  }
+
+  getRoomIcons() {
+    if (typeof this.roomIcons === 'boolean') return this.roomIcons;
+
+    const settings = getSettings();
+    if (settings === null) return true;
+    if (typeof settings.roomIcons === 'undefined') return false;
+    return settings.roomIcons;
+  }
+
   setter(action) {
     const actions = {
       [cons.actions.settings.TOGGLE_SYSTEM_THEME]: () => {
@@ -159,6 +175,9 @@ class Settings extends EventEmitter {
         this.hideNickAvatarEvents = !this.hideNickAvatarEvents;
         setSettings('hideNickAvatarEvents', this.hideNickAvatarEvents);
         this.emit(cons.events.settings.NICKAVATAR_EVENTS_TOGGLED, this.hideNickAvatarEvents);
+      },
+      [cons.actions.settings.TOGGLE_ROOM_ICONS]: () => {
+        this.toggleRoomIcons();
       },
     };
 

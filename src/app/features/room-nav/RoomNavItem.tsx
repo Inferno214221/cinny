@@ -38,6 +38,7 @@ import { stopPropagation } from '../../utils/keyboard';
 import { getMatrixToRoom } from '../../plugins/matrix-to';
 import { getCanonicalAliasOrRoomId, isRoomAlias } from '../../utils/matrix';
 import { getViaServers } from '../../plugins/via-servers';
+import settings from '../../../client/state/settings';
 
 type RoomNavItemMenuProps = {
   room: Room;
@@ -213,7 +214,7 @@ export function RoomNavItem({
         <NavItemContent>
           <Box as="span" grow="Yes" alignItems="Center" gap="200">
             <Avatar size="200" radii="400">
-              {showAvatar ? (
+              {showAvatar || settings.roomIcons ? (
                 <RoomAvatar
                   roomId={room.roomId}
                   src={

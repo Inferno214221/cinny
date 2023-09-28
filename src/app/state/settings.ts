@@ -13,6 +13,7 @@ export interface Settings {
   pageZoom: number;
 
   isPeopleDrawer: boolean;
+  roomIcons: boolean;
   memberSortFilterIndex: number;
   enterForNewline: boolean;
   messageLayout: MessageLayout;
@@ -37,6 +38,7 @@ const defaultSettings: Settings = {
   pageZoom: 100,
 
   isPeopleDrawer: true,
+  roomIcons: false,
   memberSortFilterIndex: 0,
   enterForNewline: false,
   messageLayout: 0,

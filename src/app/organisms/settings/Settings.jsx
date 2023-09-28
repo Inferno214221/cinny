@@ -7,7 +7,7 @@ import { clearCacheAndReload, logoutClient } from '../../../client/initMatrix';
 import cons from '../../../client/state/cons';
 import settings from '../../../client/state/settings';
 import navigation from '../../../client/state/navigation';
-import { toggleSystemTheme } from '../../../client/action/settings';
+import { toggleSystemTheme, toggleRoomIcons } from '../../../client/action/settings';
 import { usePermissionState } from '../../hooks/usePermission';
 
 import Text from '../../atoms/text/Text';
@@ -265,6 +265,19 @@ function AppearanceSection() {
             />
           }
           content={<Text variant="b3">Show hidden state and message events.</Text>}
+        />
+      </div>
+      <div className="settings-appearance__card">
+        <MenuHeader>Rooms</MenuHeader>
+        <SettingTile
+          title="Show room icons"
+          options={(
+            <Toggle
+              isActive={settings.roomIcons}
+              onToggle={() => { toggleRoomIcons(); updateState({}); }}
+            />
+          )}
+          content={<Text variant="b3">Show icons rather than a # for room names.</Text>}
         />
       </div>
     </div>
