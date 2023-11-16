@@ -192,9 +192,9 @@
   --fluid-slide-down: cubic-bezier(0.02, 0.82, 0.4, 0.96);
   --fluid-slide-up: cubic-bezier(0.13, 0.56, 0.25, 0.99);
 
-  --font-emoji: 'Twemoji_DISABLED';
-  --font-primary: 'InterVariable', var(--font-emoji), sans-serif;
-  --font-secondary: 'InterVariable', var(--font-emoji), sans-serif;
+  --font-emoji: 'Twemoji';
+  --font-primary: 'Ubuntu', 'Roboto', var(--font-emoji), sans-serif;
+  --font-secondary: 'Ubuntu', 'Roboto', var(--font-emoji), sans-serif;
 }
 
 .silver-theme {
@@ -326,33 +326,33 @@
   --fw-medium: 450;
   --fw-bold: 550;
 
-  --font-secondary: 'InterVariable', var(--font-emoji), sans-serif;
+  --font-secondary: 'Ubuntu', 'InterVariable', 'Roboto', var(--font-emoji), sans-serif;
 }
 
 .butter-theme {
   /* background color | --bg-[background type]: value */
-  --bg-surface: #262621;
-  --bg-surface-transparent: #26262100;
-  --bg-surface-low: #1a1916;
-  --bg-surface-low-transparent: #1a191600;
-  --bg-surface-extra-low: #1a1916;
-  --bg-surface-extra-low-transparent: #1a1916;
-  --bg-surface-hover: #33322c;
-  --bg-surface-active: #403f38;
-  --bg-surface-border: #403f38;
+  --bg-surface: #272a34;
+  --bg-surface-transparent: hsla(226, 6%, 14%, 0);
+  --bg-surface-low: #23252e;
+  --bg-surface-low-transparent: hsla(226, 6%, 10%, 0);
+  --bg-surface-extra-low: #1a1c23;
+  --bg-surface-extra-low-transparent: hsla(226, 6%, 8%, 0);
+  --bg-surface-hover: #323643;
+  --bg-surface-active: #323643;
+  --bg-surface-border: #323643;
 
-  --bg-badge: #c4c1ab;
+  --bg-badge: #eeeeec;
 
   /* text color | --tc-[background type]-[priority]: value */
-  --tc-surface-high: rgb(255, 251, 222);
-  --tc-surface-normal: rgba(255, 251, 222, 94%);
-  --tc-surface-normal-low: rgba(255, 251, 222, 60%);
-  --tc-surface-low: rgba(255, 251, 222, 58%);
+  --tc-surface-high: rgb(255, 255, 255, 94%);
+  --tc-surface-normal: rgba(255, 255, 255, 94%);
+  --tc-surface-normal-low: rgba(255, 255, 255, 60%);
+  --tc-surface-low: rgba(255, 255, 255, 58%);
 
   /* system icons | --ic-[background type]-[priority]: value */
-  --ic-surface-high: rgb(255, 251, 222);
-  --ic-surface-normal: rgba(255, 251, 222, 84%);
-  --ic-surface-low: rgba(255, 251, 222, 64%);
+  --ic-surface-high: rgb(255, 255, 255);
+  --ic-surface-normal: rgba(255, 255, 255, 84%);
+  --ic-surface-low: rgba(255, 255, 255, 64%)
 }
 
 .font-primary {
