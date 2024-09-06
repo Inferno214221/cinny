@@ -142,21 +142,28 @@ function MessageNotifications() {
   const notify = useCallback(
     ({
       roomName,
+      // eslint-disable-next-line no-unused-vars
       roomAvatar,
       username,
+      content
     }: {
       roomName: string;
       roomAvatar?: string;
       username: string;
       roomId: string;
       eventId: string;
+      content: string;
     }) => {
-      const noti = new window.Notification(roomName, {
-        icon: roomAvatar,
-        badge: roomAvatar,
-        body: `New inbox notification from ${username}`,
-        silent: true,
-      });
+      const noti = new window.Notification(
+        `${username} (${roomName})`,
+        {
+          // icon: roomAvatar,
+          // badge: roomAvatar,
+          // body: `New inbox notification from ${username}`,
+          body: content,
+          silent: false,
+        }
+      );
 
       noti.onclick = () => {
         if (!window.closed) navigate(getInboxNotificationsPath());
@@ -201,6 +208,8 @@ function MessageNotifications() {
       const unreadInfo = getUnreadInfo(room);
       const cachedUnreadInfo = unreadCacheRef.current.get(room.roomId);
       unreadCacheRef.current.set(room.roomId, unreadInfo);
+      // eslint-disable-next-line no-unused-vars
+      const { body, _formatedBody } = mEvent.getContent();
 
       if (unreadInfo.total === 0) return;
       if (
@@ -221,6 +230,7 @@ function MessageNotifications() {
           username: getMemberDisplayName(room, sender) ?? getMxIdLocalPart(sender) ?? sender,
           roomId: room.roomId,
           eventId,
+          content: body ?? 'Unable to get message content'
         });
       }
 
